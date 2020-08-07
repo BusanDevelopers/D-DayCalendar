@@ -1,5 +1,6 @@
 import 'package:d_day_calendar/dday.dart';
 import 'package:d_day_calendar/dday_unit.dart';
+import 'package:d_day_calendar/dummy/dummydday.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
@@ -36,16 +37,14 @@ class MainPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 202,
+                  height: 210,
                   child: Swiper(
                     autoplay: true,
                     autoplayDelay: 5000,
                     viewportFraction: 0.8,
                     scale: 0.85,
-                    itemCount: 5,
-                    itemBuilder: (_, index) {
-                      return DdayUnit(dday: new Dday(new DateTime(2020, 8, 8), "서버 스터디 모임", "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트"));
-                    },
+                    itemCount: DummyDdayData.dummyDdayJSON.length,
+                    itemBuilder: (_, index) => DdayUnit(dday: Dday.fromJsonString(DummyDdayData.dummyDdayJSON[index])),
                   )
                 )
               ],
