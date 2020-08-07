@@ -13,17 +13,11 @@ class MainPage extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            ListView.builder(
+            ListView(
               padding: EdgeInsets.only(top: 220),
-              itemCount: 10,
-              itemBuilder: (_, index) {
-                return Container(
-                  width: double.infinity,
-                  height: 100,
-                  margin: EdgeInsets.all(20),
-                  color: Colors.grey,
-                );
-              },
+              children: [
+                
+              ],
             ),
             Container(
               height: 220,
