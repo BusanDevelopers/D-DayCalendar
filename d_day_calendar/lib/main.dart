@@ -1,3 +1,4 @@
+import 'package:d_day_calendar/create_dday_page.dart';
 import 'package:d_day_calendar/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/' : (context) => MainPage()
+        '/': (context) => MainPage(),
+        CreateDdayPage.routeName: (context) => CreateDdayPage()
       },
     );
   }
