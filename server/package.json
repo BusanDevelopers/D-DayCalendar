@@ -1,26 +1,26 @@
 {
-    "name": "dday-calendar-server",
-    "version": "1.0.0",
-    "description": "",
-    "main": "main.js",
-    "directories": {
-      "lib": "lib"
-    },
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/BusanDevelopers/D-DayCalendar.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/BusanDevelopers/D-DayCalendar/issues"
-    },
-    "homepage": "https://github.com/BusanDevelopers/D-DayCalendar#readme",
-    "dependencies": {
-      "express": "^4.17.1"
-    }
+  "name": "dday-calendar-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BusanDevelopers/D-DayCalendar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BusanDevelopers/D-DayCalendar/issues"
+  },
+  "homepage": "https://github.com/BusanDevelopers/D-DayCalendar#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1"
   }
-  
+}
