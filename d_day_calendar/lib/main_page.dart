@@ -1,3 +1,4 @@
+import 'package:d_day_calendar/create_dday_page.dart';
 import 'package:d_day_calendar/dday.dart';
 import 'package:d_day_calendar/dday_unit.dart';
 import 'package:d_day_calendar/dummy/dummydday.dart';
@@ -11,25 +12,23 @@ class MainPage extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          children: [
-            ListView(
-              padding: EdgeInsets.only(top: 220),
-              children: [
-                
-              ],
-            ),
-            Container(
+          child: Stack(
+        children: [
+          ListView(
+            padding: EdgeInsets.only(top: 220),
+            children: [],
+          ),
+          Container(
               height: 220,
               decoration: BoxDecoration(
-                color: Colors.lightBlue[300],
-                borderRadius: BorderRadius.only(bottomLeft: Radius.elliptical(width, 75), bottomRight: Radius.elliptical(width, 75))
-              )
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
+                  color: Colors.lightBlue[300],
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.elliptical(width, 60),
+                      bottomRight: Radius.elliptical(width, 60)))),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
                   width: double.infinity,
                   height: 210,
                   child: Swiper(
@@ -38,13 +37,17 @@ class MainPage extends StatelessWidget {
                     viewportFraction: 0.8,
                     scale: 0.85,
                     itemCount: DummyDdayData.dummyDdayJSON.length,
-                    itemBuilder: (_, index) => DdayUnit(dday: Dday.fromJsonString(DummyDdayData.dummyDdayJSON[index])),
-                  )
-                )
-              ],
-            )
-          ],
-        )
+                    itemBuilder: (_, index) => DdayUnit(
+                        dday: Dday.fromJsonString(
+                            DummyDdayData.dummyDdayJSON[index])),
+                  ))
+            ],
+          )
+        ],
+      )),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => Navigator.pushNamed(context, CreateDdayPage.routeName),
       ),
     );
   }
