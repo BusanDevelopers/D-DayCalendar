@@ -1,5 +1,6 @@
 import 'package:d_day_calendar/dday.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DdayUnit extends StatelessWidget {
   final Dday _dday;
@@ -10,8 +11,10 @@ class DdayUnit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateFormat formatter = new DateFormat('yyyy. MM. dd.');
+
     DateTime now = new DateTime.now();
-    int remainDay = _dday.date.difference(new DateTime(now.year, now.month, now.day)).inDays;
+    int remainDay = new DateTime(now.year, now.month, now.day).difference(_dday.date).inDays;
     Color ddayColor = Colors.blue[100];
 
     if(remainDay == 0) ddayColor = Colors.blue[900];
@@ -41,13 +44,30 @@ class DdayUnit extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'D-${(remainDay == 0) ? 'Day' : remainDay}',
-                style: TextStyle(
-                  color: ddayColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 50
-                ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'D${(remainDay > 0 ? '+' : '')}${(remainDay == 0) ? '-Day' : remainDay}',
+                    style: TextStyle(
+                      color: ddayColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 50
+                    ),
+                  ),
+                  SizedBox(width: 12),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: Text(
+                      formatter.format(_dday.date),
+                      style: TextStyle(
+                        color: ddayColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16
+                      )
+                    )
+                  )
+                ],
               ),
               Text(
                 _dday.title,
