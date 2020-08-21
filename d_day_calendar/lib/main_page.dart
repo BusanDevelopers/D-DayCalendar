@@ -13,29 +13,29 @@ class MainPage extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-          child: Stack(
-        children: [
-          ListView.builder(
-            padding: EdgeInsets.only(top: 220),
-            itemBuilder: (_, index) => CalendarUnit(index),
-          ),
-          Container(
-            height: 220,
-            decoration: BoxDecoration(
-              color: Colors.lightBlue[300],
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black26,
-                  blurRadius: 5
-                )
-              ],
-              borderRadius: BorderRadius.only(bottomLeft: Radius.elliptical(width, 60), bottomRight: Radius.elliptical(width, 60))
-            )
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
+        child: Stack(
+          children: [
+            ListView.builder(
+              padding: EdgeInsets.only(top: 220),
+              itemBuilder: (_, index) => CalendarUnit(index),
+            ),
+            Container(
+              height: 220,
+              decoration: BoxDecoration(
+                color: Colors.lightBlue[300],
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 5
+                  )
+                ],
+                borderRadius: BorderRadius.only(bottomLeft: Radius.elliptical(width, 60), bottomRight: Radius.elliptical(width, 60))
+              )
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
                   width: double.infinity,
                   height: 210,
                   child: Swiper(
@@ -44,14 +44,14 @@ class MainPage extends StatelessWidget {
                     viewportFraction: 0.8,
                     scale: 0.85,
                     itemCount: DummyDdayData.dummyDdayJSON.length,
-                    itemBuilder: (_, index) => DdayUnit(
-                        dday: Dday.fromJsonString(
-                            DummyDdayData.dummyDdayJSON[index])),
-                  ))
-            ],
-          )
-        ],
-      )),
+                    itemBuilder: (_, index) => DdayUnit(dday: Dday.fromJsonString(DummyDdayData.dummyDdayJSON[index])),
+                  )
+                )
+              ],
+            )
+          ],
+        )
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => Navigator.pushNamed(context, CreateDdayPage.routeName),
