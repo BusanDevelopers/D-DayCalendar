@@ -1,3 +1,4 @@
+import 'package:d_day_calendar/calendar_unit.dart';
 import 'package:d_day_calendar/create_dday_page.dart';
 import 'package:d_day_calendar/dday.dart';
 import 'package:d_day_calendar/dday_unit.dart';
@@ -14,17 +15,23 @@ class MainPage extends StatelessWidget {
       body: SafeArea(
           child: Stack(
         children: [
-          ListView(
+          ListView.builder(
             padding: EdgeInsets.only(top: 220),
-            children: [],
+            itemBuilder: (_, index) => CalendarUnit(index),
           ),
           Container(
-              height: 220,
-              decoration: BoxDecoration(
-                  color: Colors.lightBlue[300],
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.elliptical(width, 60),
-                      bottomRight: Radius.elliptical(width, 60)))),
+            height: 220,
+            decoration: BoxDecoration(
+              color: Colors.lightBlue[300],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 5
+                )
+              ],
+              borderRadius: BorderRadius.only(bottomLeft: Radius.elliptical(width, 60), bottomRight: Radius.elliptical(width, 60))
+            )
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
